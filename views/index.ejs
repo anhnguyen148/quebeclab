@@ -1,0 +1,19 @@
+<h1>This is <%= data[0].name %>'s <%= data[0].project_name %></h1>
+
+<form method="POST" action="/form/insert">     
+    <label for="content">Add new project name: </label>     
+    <input type="text" id="pjname" name="pjname" placeholder="Enter here..."></input>
+    <button class="btn" type="submit">Submit</button>     
+    <br/><br/>
+</form>
+    
+    <% for(var i = 1; i < data.length; i++) { %>
+        <form method="POST">
+            <p><%= data[i].pj %></p> 
+            <input type="text" id="pjName" name="pjName" value="<%= data[i].pj %>"></input>
+            <input type="hidden" id="pjId" name="pjId" value="<%= data[i]._id %>"></input>
+            <button class="btn" type="submit" formaction="/form/update">Update</button>
+            <button class="btn" type="submit" formaction="/form/delete">Delete</button>
+        </form>
+    <% } %>
+
